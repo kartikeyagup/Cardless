@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>91648137-6f68-4a37-83d9-c279ee39ef9c</ProjectGuid>
+    <ProjectGuid>{91648137-6F68-4A37-83D9-C279EE39EF9C}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cardless</RootNamespace>
