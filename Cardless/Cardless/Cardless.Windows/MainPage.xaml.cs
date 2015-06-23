@@ -45,6 +45,7 @@ namespace Cardless
         public static MainPage Current;
         OcrEngine ocrEngine;
         UInt32 width;
+        bool imgcaptured;
 
         private Windows.Foundation.Collections.IPropertySet appSettings;
         private const String photoKey = "capturedPhoto";
@@ -54,6 +55,7 @@ namespace Cardless
 
         public MainPage()
         {
+            imgcaptured = false;
             this.InitializeComponent();
             Current = this;
             appSettings = ApplicationData.Current.LocalSettings.Values;
@@ -184,6 +186,7 @@ namespace Cardless
                 StorageFile file = await dialog.CaptureFileAsync(CameraCaptureUIMode.Photo);
                 if (file != null)
                 {
+                    imgcaptured = true;
                     BitmapImage bitmapImage = new BitmapImage();
                     using (IRandomAccessStream fileStream = await file.OpenAsync(FileAccessMode.Read))
                     {
@@ -206,5 +209,62 @@ namespace Cardless
             }
         }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void ProcessImaege()
+        {
+            //List<string> wordlist1 = new List<string>();
+            //    var x = CapturedPhoto.Source;
+            //{
+            //    // Create image decoder.
+            //    var decoder = await BitmapDecoder.CreateAsync(stream);
+
+            //    width = decoder.PixelWidth;
+            //    height = decoder.PixelHeight;
+
+            //    // Get pixels in BGRA format.
+            //    var pixels = await decoder.GetPixelDataAsync(
+            //        BitmapPixelFormat.Bgra8,
+            //        BitmapAlphaMode.Straight,
+            //        new BitmapTransform(),
+            //        ExifOrientationMode.RespectExifOrientation,
+            //        ColorManagementMode.ColorManageToSRgb);
+
+            //    // Extract text from image.
+            //    OcrResult result = await ocrEngine.RecognizeAsync(height, width, pixels.DetachPixelData());
+
+            //    // Check whether text is detected.
+            //    if (result.Lines != null)
+            //    {
+            //        // Collect recognized text.
+            //        string recognizedText = "";
+            //        foreach (var line in result.Lines)
+            //        {
+            //            foreach (var word in line.Words)
+            //            {
+            //                //allwords.Add(word.Text);
+            //                wordlist1.Add(word.Text);
+            //                recognizedText += word.Text + " ";
+            //            }
+            //            recognizedText += Environment.NewLine;
+            //        }
+
+            //        // Display recognized text.
+            //        OcrText.Text = recognizedText;
+            //        EmailText.Text = JoinList(GetEmailIds(wordlist1)) + "\n" + JoinList(GetPhoneNumbers(wordlist1));
+            //    }
+            //}
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            if (imgcaptured)
+            {
+                ProcessImaege();
+            }
+        }
     }
 }

@@ -14,6 +14,8 @@
         <Image x:Name="CapturedPhoto" HorizontalAlignment="Left" Height="445.774" Margin="398.548,95.392,0,0" VerticalAlignment="Top" Width="554.1" UseLayoutRounding="False" d:LayoutRounding="Auto">
 
         </Image>
-        
+        <Button x:Name="button" Content="Exit" HorizontalAlignment="Left" Margin="1190,76,0,0" VerticalAlignment="Top" Click="button_Click"/>
+        <Button x:Name="button1" Content="Process Image" HorizontalAlignment="Left" Margin="1193,299,0,0" VerticalAlignment="Top" Click="button1_Click"/>
+
     </Grid>
 </Page>
