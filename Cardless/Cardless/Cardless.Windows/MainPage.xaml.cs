@@ -45,7 +45,10 @@ namespace Cardless
         public static MainPage Current;
         OcrEngine ocrEngine;
         UInt32 width;
-        
+
+        private Windows.Foundation.Collections.IPropertySet appSettings;
+        private const String photoKey = "capturedPhoto";
+
         MainPage rootPage = MainPage.Current;
         UInt32 height;
 
@@ -53,6 +56,7 @@ namespace Cardless
         {
             this.InitializeComponent();
             Current = this;
+            appSettings = ApplicationData.Current.LocalSettings.Values;
             ocrEngine = new OcrEngine(OcrLanguage.English);
         }
 
@@ -189,7 +193,7 @@ namespace Cardless
                     //ResetButton.Visibility = Visibility.Visible;
 
                     // Store the file path in Application Data
-                    //appSettings[photoKey] = file.Path;
+                    appSettings[photoKey] = file.Path;
                 }
                 else
                 {
