@@ -10,5 +10,9 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Name="OcrText" HorizontalAlignment="Left" Margin="50,40,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock Name="EmailText" HorizontalAlignment="Left" Margin="100,200,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="88" Margin="563,605,0,0" VerticalAlignment="Top" Width="240" Tapped="Button_Tapped"/>
+        <Image x:Name="CapturedPhoto" HorizontalAlignment="Left" Height="445.774" Margin="398.548,95.392,0,0" VerticalAlignment="Top" Width="554.1" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            
+        </Image>
     </Grid>
 </Page>
